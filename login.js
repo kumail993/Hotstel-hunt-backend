@@ -14,6 +14,7 @@ router.route('/login').post((req, res, next) => {
 
     if (student_email !== "" && student_password !== "") {
         db.query(sql, [student_email, student_password], function(err, data, fields) {
+            console.log(student_email);
             if (err) {
                 console.log(err);
                 res.status(500).json({ success: false, message: "Internal server error" });
